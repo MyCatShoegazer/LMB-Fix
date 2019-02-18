@@ -69,5 +69,17 @@ namespace LMB_Fix
         {
             new Ui.Dialogs.Etc.AboutDialog().ShowDialog(this);
         }
+
+        private void leftButtonTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            var trackBar = sender as TrackBar;
+            this.leftButtonLabel.Text = $"{trackBar.Value}ms";
+        }
+
+        private void rightButtonTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            var trackBar = sender as TrackBar;
+            this.rightButtonLabel.Text = $"{trackBar.Value}ms";
+        }
     }
 }

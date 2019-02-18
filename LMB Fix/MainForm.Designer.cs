@@ -89,18 +89,18 @@
             this.rightButtonLabel.AutoSize = true;
             this.rightButtonLabel.Location = new System.Drawing.Point(225, 63);
             this.rightButtonLabel.Name = "rightButtonLabel";
-            this.rightButtonLabel.Size = new System.Drawing.Size(40, 13);
+            this.rightButtonLabel.Size = new System.Drawing.Size(26, 13);
             this.rightButtonLabel.TabIndex = 5;
-            this.rightButtonLabel.Text = "rbutton";
+            this.rightButtonLabel.Text = "0ms";
             // 
             // leftButtonLabel
             // 
             this.leftButtonLabel.AutoSize = true;
             this.leftButtonLabel.Location = new System.Drawing.Point(225, 33);
             this.leftButtonLabel.Name = "leftButtonLabel";
-            this.leftButtonLabel.Size = new System.Drawing.Size(39, 13);
+            this.leftButtonLabel.Size = new System.Drawing.Size(26, 13);
             this.leftButtonLabel.TabIndex = 4;
-            this.leftButtonLabel.Text = "lbutton";
+            this.leftButtonLabel.Text = "0ms";
             // 
             // rightButtonTrackBar
             // 
@@ -112,6 +112,7 @@
             this.rightButtonTrackBar.Size = new System.Drawing.Size(112, 45);
             this.rightButtonTrackBar.TabIndex = 3;
             this.rightButtonTrackBar.Value = 5;
+            this.rightButtonTrackBar.ValueChanged += new System.EventHandler(this.rightButtonTrackBar_ValueChanged);
             // 
             // leftButtonTrackBar
             // 
@@ -123,6 +124,7 @@
             this.leftButtonTrackBar.Size = new System.Drawing.Size(112, 45);
             this.leftButtonTrackBar.TabIndex = 2;
             this.leftButtonTrackBar.Value = 5;
+            this.leftButtonTrackBar.ValueChanged += new System.EventHandler(this.leftButtonTrackBar_ValueChanged);
             // 
             // rightButtonFixCheckBox
             // 
