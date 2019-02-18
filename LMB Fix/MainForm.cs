@@ -31,6 +31,7 @@ namespace LMB_Fix
 #if DEBUG
             Debug.WriteLine($"LMB Up: {DateTime.Now.Second}:{DateTime.Now.Millisecond}");
 #endif
+            this.historyRichTextBox.AppendText($"LMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
         }
 
         private void _mouseHook_LeftButtonDown(MouseHook.MSLLHOOKSTRUCT mouseStruct)
@@ -38,6 +39,7 @@ namespace LMB_Fix
 #if DEBUG
             Debug.WriteLine($"LMB Down: {DateTime.Now.Second}:{DateTime.Now.Millisecond}");
 #endif
+            this.historyRichTextBox.AppendText($"LMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
             NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, 20));
         }
 
@@ -51,6 +53,16 @@ namespace LMB_Fix
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
