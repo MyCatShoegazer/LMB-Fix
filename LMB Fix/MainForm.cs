@@ -64,5 +64,10 @@ namespace LMB_Fix
         {
             this.Hide();
         }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            new Ui.Dialogs.Etc.AboutDialog().ShowDialog(this);
+        }
     }
 }
