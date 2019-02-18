@@ -83,18 +83,18 @@ namespace LMB_Fix
         {
             TrackBar trackBar = sender as TrackBar;
             leftButtonLabel.Text = $"{trackBar.Value}ms";
+            Properties.Settings.Default.LeftButtonDelay = trackBar.Value;
         }
 
         private void rightButtonTrackBar_ValueChanged(object sender, EventArgs e)
         {
             TrackBar trackBar = sender as TrackBar;
             rightButtonLabel.Text = $"{trackBar.Value}ms";
+            Properties.Settings.Default.RightButtonDelay = trackBar.Value;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
-
             _mouseHook = new MouseHook();
             _mouseHook.LeftButtonDown += _mouseHook_LeftButtonDown;
             _mouseHook.LeftButtonUp += _mouseHook_LeftButtonUp;
@@ -102,8 +102,13 @@ namespace LMB_Fix
             _mouseHook.RightButtonUp += _mouseHook_RightButtonUp;
             _mouseHook.Install();
 
+            leftButtonFixCheckBox.Checked = Properties.Settings.Default.LeftButtonFixEnabled;
             leftButtonTrackBar.Value = Properties.Settings.Default.LeftButtonDelay;
+
+            rightButtonFixCheckBox.Checked = Properties.Settings.Default.RightButtonFixEnabled;
             rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
+
+            Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
         }
 
         private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -115,12 +120,18 @@ namespace LMB_Fix
         {
             CheckBox checkBox = sender as CheckBox;
             leftButtonTrackBar.Enabled = checkBox.Checked;
+            var tip = checkBox.Checked ? "enabled" : "disabled";
+            this.notifyIcon.ShowBalloonTip(3000, "LMB Status", $"Left mouse button fix {tip}.", ToolTipIcon.Info);
+            Properties.Settings.Default.LeftButtonFixEnabled = checkBox.Checked;
         }
 
         private void rightButtonFixCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
             rightButtonTrackBar.Enabled = checkBox.Checked;
+            var tip = checkBox.Checked ? "enabled" : "disabled";
+            this.notifyIcon.ShowBalloonTip(3000, "LMB Status", $"Right mouse button fix {checkBox.Checked}.", ToolTipIcon.Info);
+            Properties.Settings.Default.RightButtonFixEnabled = checkBox.Checked;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -131,7 +142,7 @@ namespace LMB_Fix
             {
                 if (
                     MessageBox.Show(
-                        "Application settings were changed after last time. Do you want to save theme before exit?",
+                        "Application settings were changed after last time. Do you want to save them before exit?",
                         "Unsaved settings",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question
