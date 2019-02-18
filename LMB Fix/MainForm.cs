@@ -23,24 +23,31 @@ namespace LMB_Fix
             this._mouseHook = new MouseHook();
             this._mouseHook.LeftButtonDown += _mouseHook_LeftButtonDown;
             this._mouseHook.LeftButtonUp += _mouseHook_LeftButtonUp;
+            this._mouseHook.RightButtonDown += _mouseHook_RightButtonDown;
+            this._mouseHook.RightButtonUp += _mouseHook_RightButtonUp;
             this._mouseHook.Install();
+        }
+
+        private void _mouseHook_RightButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
+        {
+            this.historyRichTextBox.AppendText($"RMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+        }
+
+        private void _mouseHook_RightButtonDown(MouseHook.MSLLHOOKSTRUCT mouseStruct)
+        {
+            this.historyRichTextBox.AppendText($"RMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+            NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.rightButtonTrackBar.Value));
         }
 
         private void _mouseHook_LeftButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-#if DEBUG
-            Debug.WriteLine($"LMB Up: {DateTime.Now.Second}:{DateTime.Now.Millisecond}");
-#endif
             this.historyRichTextBox.AppendText($"LMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
         }
 
         private void _mouseHook_LeftButtonDown(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-#if DEBUG
-            Debug.WriteLine($"LMB Down: {DateTime.Now.Second}:{DateTime.Now.Millisecond}");
-#endif
             this.historyRichTextBox.AppendText($"LMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
-            NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, 20));
+            NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.leftButtonTrackBar.Value));
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
