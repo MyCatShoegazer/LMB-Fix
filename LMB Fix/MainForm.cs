@@ -87,5 +87,17 @@ namespace LMB_Fix
             this.leftButtonTrackBar.Value = Properties.Settings.Default.LeftButtonDelay;
             this.rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
         }
+
+        private void leftButtonFixCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+            this.leftButtonTrackBar.Enabled = checkBox.Checked;
+        }
+
+        private void rightButtonFixCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+            this.rightButtonTrackBar.Enabled = checkBox.Checked;
+        }
     }
 }

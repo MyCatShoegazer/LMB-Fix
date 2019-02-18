@@ -137,6 +137,7 @@
             this.rightButtonFixCheckBox.TabIndex = 1;
             this.rightButtonFixCheckBox.Text = "Right button fix";
             this.rightButtonFixCheckBox.UseVisualStyleBackColor = true;
+            this.rightButtonFixCheckBox.CheckedChanged += new System.EventHandler(this.rightButtonFixCheckBox_CheckedChanged);
             // 
             // leftButtonFixCheckBox
             // 
@@ -147,6 +148,7 @@
             this.leftButtonFixCheckBox.TabIndex = 0;
             this.leftButtonFixCheckBox.Text = "Left button fix";
             this.leftButtonFixCheckBox.UseVisualStyleBackColor = true;
+            this.leftButtonFixCheckBox.CheckedChanged += new System.EventHandler(this.leftButtonFixCheckBox_CheckedChanged);
             // 
             // historyGroup
             // 
