@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace LMB_Fix
 {
@@ -108,6 +109,8 @@ namespace LMB_Fix
             rightButtonFixCheckBox.Checked = Properties.Settings.Default.RightButtonFixEnabled;
             rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
 
+            runAtStartCheckBox.Checked = Properties.Settings.Default.RunAtStartup;
+
             Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
         }
 
@@ -194,6 +197,18 @@ namespace LMB_Fix
         private void rightButtonFixToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.rightButtonFixCheckBox.Checked = !this.rightButtonFixCheckBox.Checked;
+        }
+
+        private void runAtStartCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            Properties.Settings.Default.RunAtStartup = checkbox.Checked;
+            var regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            if (checkbox.Checked)
+                regKey.SetValue(Application.ProductName, Application.ExecutablePath);
+            else
+                regKey.DeleteValue(Application.ProductName, false);
         }
     }
 }

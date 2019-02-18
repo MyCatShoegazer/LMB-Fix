@@ -83,7 +83,7 @@
             this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.notifyIconMenu.Name = "notifyIconMenu";
-            this.notifyIconMenu.Size = new System.Drawing.Size(181, 154);
+            this.notifyIconMenu.Size = new System.Drawing.Size(157, 132);
             // 
             // showToolStripMenuItem
             // 
@@ -160,6 +160,7 @@
             this.runAtStartCheckBox.TabIndex = 6;
             this.runAtStartCheckBox.Text = "Run with windows?";
             this.runAtStartCheckBox.UseVisualStyleBackColor = true;
+            this.runAtStartCheckBox.CheckedChanged += new System.EventHandler(this.runAtStartCheckBox_CheckedChanged);
             // 
             // rightButtonLabel
             // 
