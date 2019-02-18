@@ -23,24 +23,32 @@ namespace LMB_Fix
 
         private void _mouseHook_RightButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-            this.historyRichTextBox.AppendText($"RMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+            if(this.rightButtonFixCheckBox.Checked)
+                this.historyRichTextBox.AppendText($"RMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
         }
 
         private void _mouseHook_RightButtonDown(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-            this.historyRichTextBox.AppendText($"RMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
-            NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.rightButtonTrackBar.Value));
+            if (this.rightButtonFixCheckBox.Checked)
+            {
+                this.historyRichTextBox.AppendText($"RMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+                NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.rightButtonTrackBar.Value));
+            }
         }
 
         private void _mouseHook_LeftButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-            this.historyRichTextBox.AppendText($"LMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+            if (this.leftButtonFixCheckBox.Checked)
+                this.historyRichTextBox.AppendText($"LMB Up: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
         }
 
         private void _mouseHook_LeftButtonDown(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
-            this.historyRichTextBox.AppendText($"LMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
-            NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.leftButtonTrackBar.Value));
+            if (this.leftButtonFixCheckBox.Checked)
+            {
+                this.historyRichTextBox.AppendText($"LMB Down: {DateTime.Now.Second}s:{DateTime.Now.Millisecond}ms\n");
+                NativeSupport.BlockInput(new TimeSpan(0, 0, 0, 0, this.leftButtonTrackBar.Value));
+            }
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
