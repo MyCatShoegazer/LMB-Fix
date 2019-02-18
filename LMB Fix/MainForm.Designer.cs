@@ -222,6 +222,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "LMB Fix";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.settingsGroup.ResumeLayout(false);
             this.settingsGroup.PerformLayout();

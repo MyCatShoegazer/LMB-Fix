@@ -81,5 +81,11 @@ namespace LMB_Fix
             var trackBar = sender as TrackBar;
             this.rightButtonLabel.Text = $"{trackBar.Value}ms";
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            this.leftButtonTrackBar.Value = Properties.Settings.Default.LeftButtonDelay;
+            this.rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
+        }
     }
 }
