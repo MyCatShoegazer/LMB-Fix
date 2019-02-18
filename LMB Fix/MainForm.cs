@@ -106,5 +106,10 @@ namespace LMB_Fix
             var checkBox = sender as CheckBox;
             this.rightButtonTrackBar.Enabled = checkBox.Checked;
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this._mouseHook.Uninstall();
+        }
     }
 }
