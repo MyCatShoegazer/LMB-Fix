@@ -19,13 +19,6 @@ namespace LMB_Fix
         public MainForm()
         {
             InitializeComponent();
-
-            this._mouseHook = new MouseHook();
-            this._mouseHook.LeftButtonDown += _mouseHook_LeftButtonDown;
-            this._mouseHook.LeftButtonUp += _mouseHook_LeftButtonUp;
-            this._mouseHook.RightButtonDown += _mouseHook_RightButtonDown;
-            this._mouseHook.RightButtonUp += _mouseHook_RightButtonUp;
-            this._mouseHook.Install();
         }
 
         private void _mouseHook_RightButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
@@ -91,6 +84,13 @@ namespace LMB_Fix
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this._mouseHook = new MouseHook();
+            this._mouseHook.LeftButtonDown += _mouseHook_LeftButtonDown;
+            this._mouseHook.LeftButtonUp += _mouseHook_LeftButtonUp;
+            this._mouseHook.RightButtonDown += _mouseHook_RightButtonDown;
+            this._mouseHook.RightButtonUp += _mouseHook_RightButtonUp;
+            this._mouseHook.Install();
+
             this.leftButtonTrackBar.Value = Properties.Settings.Default.LeftButtonDelay;
             this.rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
         }
