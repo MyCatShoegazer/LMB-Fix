@@ -119,5 +119,14 @@ namespace LMB_Fix
         {
             this._mouseHook.Uninstall();
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LeftButtonFixEnabled = this.leftButtonFixCheckBox.Checked;
+            Properties.Settings.Default.LeftButtonDelay = this.leftButtonTrackBar.Value;
+            Properties.Settings.Default.RightButtonFixEnabled = this.rightButtonFixCheckBox.Checked;
+            Properties.Settings.Default.RightButtonDelay = this.rightButtonTrackBar.Value;
+            Properties.Settings.Default.Save();
+        }
     }
 }

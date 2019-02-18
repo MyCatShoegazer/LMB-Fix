@@ -46,5 +46,29 @@ namespace LMB_Fix.Properties {
                 this["RightButtonDelay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LeftButtonFixEnabled {
+            get {
+                return ((bool)(this["LeftButtonFixEnabled"]));
+            }
+            set {
+                this["LeftButtonFixEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RightButtonFixEnabled {
+            get {
+                return ((bool)(this["RightButtonFixEnabled"]));
+            }
+            set {
+                this["RightButtonFixEnabled"] = value;
+            }
+        }
     }
 }
