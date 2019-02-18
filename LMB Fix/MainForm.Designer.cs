@@ -104,6 +104,7 @@
             // 
             // rightButtonTrackBar
             // 
+            this.rightButtonTrackBar.Enabled = false;
             this.rightButtonTrackBar.LargeChange = 20;
             this.rightButtonTrackBar.Location = new System.Drawing.Point(107, 54);
             this.rightButtonTrackBar.Maximum = 200;
@@ -116,6 +117,7 @@
             // 
             // leftButtonTrackBar
             // 
+            this.leftButtonTrackBar.Enabled = false;
             this.leftButtonTrackBar.LargeChange = 20;
             this.leftButtonTrackBar.Location = new System.Drawing.Point(107, 19);
             this.leftButtonTrackBar.Maximum = 200;
