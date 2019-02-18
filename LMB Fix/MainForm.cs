@@ -168,5 +168,21 @@ namespace LMB_Fix
             SaveSettings();
             _unsavedSettings = false;
         }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void leftButtonFixToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.leftButtonFixCheckBox.Checked = !this.leftButtonFixCheckBox.Checked;
+        }
+
+        private void rightButtonFixToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.rightButtonFixCheckBox.Checked = !this.rightButtonFixCheckBox.Checked;
+        }
     }
 }

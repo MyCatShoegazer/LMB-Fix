@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.leftButtonFixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightButtonFixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsGroup = new System.Windows.Forms.GroupBox();
             this.runAtStartCheckBox = new System.Windows.Forms.CheckBox();
             this.rightButtonLabel = new System.Windows.Forms.Label();
@@ -45,6 +54,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.notifyIconMenu.SuspendLayout();
             this.settingsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rightButtonTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftButtonTrackBar)).BeginInit();
@@ -53,10 +63,77 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon.BalloonTipTitle = "Status";
+            this.notifyIcon.ContextMenuStrip = this.notifyIconMenu;
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "LMB Fix";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            // 
+            // notifyIconMenu
+            // 
+            this.notifyIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.leftButtonFixToolStripMenuItem,
+            this.rightButtonFixToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.aboutToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.exitToolStripMenuItem});
+            this.notifyIconMenu.Name = "notifyIconMenu";
+            this.notifyIconMenu.Size = new System.Drawing.Size(181, 154);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Text = "Show...";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // leftButtonFixToolStripMenuItem
+            // 
+            this.leftButtonFixToolStripMenuItem.Name = "leftButtonFixToolStripMenuItem";
+            this.leftButtonFixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.leftButtonFixToolStripMenuItem.Text = "Left button fix";
+            this.leftButtonFixToolStripMenuItem.Click += new System.EventHandler(this.leftButtonFixToolStripMenuItem_Click);
+            // 
+            // rightButtonFixToolStripMenuItem
+            // 
+            this.rightButtonFixToolStripMenuItem.Name = "rightButtonFixToolStripMenuItem";
+            this.rightButtonFixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rightButtonFixToolStripMenuItem.Text = "Right button fix";
+            this.rightButtonFixToolStripMenuItem.Click += new System.EventHandler(this.rightButtonFixToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // settingsGroup
             // 
@@ -228,6 +305,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
+            this.notifyIconMenu.ResumeLayout(false);
             this.settingsGroup.ResumeLayout(false);
             this.settingsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rightButtonTrackBar)).EndInit();
@@ -254,5 +332,14 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.CheckBox runAtStartCheckBox;
+        private System.Windows.Forms.ContextMenuStrip notifyIconMenu;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem leftButtonFixToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rightButtonFixToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
