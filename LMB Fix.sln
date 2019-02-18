@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMB Fix", "LMB Fix\LMB Fix.csproj", "{1147DE30-12A9-4EE1-8E1D-3E2CEC108A74}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{DE2AA512-3076-44EF-AD23-0DDA56B6210E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{1147DE30-12A9-4EE1-8E1D-3E2CEC108A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1147DE30-12A9-4EE1-8E1D-3E2CEC108A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1147DE30-12A9-4EE1-8E1D-3E2CEC108A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2AA512-3076-44EF-AD23-0DDA56B6210E}.Debug|Any CPU.ActiveCfg = Debug
+		{DE2AA512-3076-44EF-AD23-0DDA56B6210E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
