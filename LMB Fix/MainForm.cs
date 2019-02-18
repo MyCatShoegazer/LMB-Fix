@@ -109,7 +109,11 @@ namespace LMB_Fix
             rightButtonFixCheckBox.Checked = Properties.Settings.Default.RightButtonFixEnabled;
             rightButtonTrackBar.Value = Properties.Settings.Default.RightButtonDelay;
 
-            runAtStartCheckBox.Checked = Properties.Settings.Default.RunAtStartup;
+            var run = Registry.CurrentUser.OpenSubKey(Properties.Settings.Default.StartupRegistryPath, false).GetValue(Application.ProductName);
+            if (run != null)
+                runAtStartCheckBox.Checked = true;
+
+            runAtStartCheckBox.CheckedChanged += runAtStartCheckBox_CheckedChanged;
 
             Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
         }
@@ -202,8 +206,7 @@ namespace LMB_Fix
         private void runAtStartCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkbox = sender as CheckBox;
-            Properties.Settings.Default.RunAtStartup = checkbox.Checked;
-            var regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            var regKey = Registry.CurrentUser.OpenSubKey(Properties.Settings.Default.StartupRegistryPath, true);
 
             if (checkbox.Checked)
                 regKey.SetValue(Application.ProductName, Application.ExecutablePath);

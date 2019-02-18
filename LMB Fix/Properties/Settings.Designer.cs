@@ -82,5 +82,14 @@ namespace LMB_Fix.Properties {
                 this["RunAtStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run")]
+        public string StartupRegistryPath {
+            get {
+                return ((string)(this["StartupRegistryPath"]));
+            }
+        }
     }
 }

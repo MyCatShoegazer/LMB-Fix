@@ -17,5 +17,8 @@
     <Setting Name="RunAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="StartupRegistryPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SOFTWARE\Microsoft\Windows\CurrentVersion\Run</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
