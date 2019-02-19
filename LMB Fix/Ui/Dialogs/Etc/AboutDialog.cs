@@ -14,9 +14,9 @@ namespace LMB_Fix.Ui.Dialogs.Etc
         public AboutDialog()
         {
             InitializeComponent();
-            this.Text = String.Format("О программе {0}", AssemblyTitle);
+            this.Text = String.Format("About program {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
